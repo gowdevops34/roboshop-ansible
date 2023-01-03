@@ -1,0 +1,3 @@
+- name: Hello from FRONTEND
+  ansible.builtin.debug:
+    msg: Frontend Role
