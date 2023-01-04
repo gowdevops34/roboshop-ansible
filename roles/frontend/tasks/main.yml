@@ -26,6 +26,11 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: download
+- name: Start Nginx Service
+  ansible.builtin.systemd:
+    name: nginx
+    state: started
+    enabled: yes
 
 
 
