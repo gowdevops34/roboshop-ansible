@@ -1,12 +1,3 @@
-#    PRINT "Clean Old Content"
-#    cd /usr/share/nginx/html
-#    rm -rf * &>>${LOG}
-#    CHECK_STAT $?
-#
-#    PRINT "Extract ${COMPONENT} Content"
-#    unzip /tmp/${COMPONENT}.zip &>>${LOG}
-#    CHECK_STAT $?
-#
 #    PRINT "Organise ${COMPONENT} Content"
 #    mv ${COMPONENT}-main/* . && mv static/* . && rm -rf ${COMPONENT}-main README.md && mv localhost.conf /etc/nginx/default.d/roboshop.conf
 #    CHECK_STAT $?
