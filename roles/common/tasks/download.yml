@@ -1,5 +1,5 @@
 - name: Remove App Code
-  ansible.buitin.files:
+  ansible.builtin.files:
     path: "{{ APP_LOCATION }}"
     state: absent
 
