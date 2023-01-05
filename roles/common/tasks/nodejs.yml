@@ -17,7 +17,7 @@
 #    SYSTEMD
 
 - name: Setup YUM repos for NodeJS
-  ansible.builtin.shell: curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash &>>${LOG}
+  ansible.builtin.shell: curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash
 
 - name: Install NodeJS
   ansible.builtin.yum:
