@@ -1,15 +1,3 @@
-#    CHECK_ROOT
-#
-#    PRINT "Setting Up Nodejs YUM Repo is "
-#    curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash &>>${LOG}
-#    CHECK_STAT $?
-#
-#    PRINT "Installing Nodejs"
-#    yum install nodejs -y &>>${LOG}
-#    CHECK_STAT $?
-#
-#    APP_COMMON_SETUP
-#
 #    PRINT "Install Nodejs Dependencies for ${COMPONENT} Component"
 #    mv ${COMPONENT}-main ${COMPONENT} && cd ${COMPONENT} && npm install &>>${LOG}
 #    CHECK_STAT $?
@@ -28,3 +16,7 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: download
+
+- name: Install Nodejs Dependencies
+  community.general.npm:
+   path: "{{ APP_LOCATION }}"
