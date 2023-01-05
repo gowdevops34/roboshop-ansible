@@ -1,0 +1,30 @@
+#    CHECK_ROOT
+#
+#    PRINT "Setting Up Nodejs YUM Repo is "
+#    curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash &>>${LOG}
+#    CHECK_STAT $?
+#
+#    PRINT "Installing Nodejs"
+#    yum install nodejs -y &>>${LOG}
+#    CHECK_STAT $?
+#
+#    APP_COMMON_SETUP
+#
+#    PRINT "Install Nodejs Dependencies for ${COMPONENT} Component"
+#    mv ${COMPONENT}-main ${COMPONENT} && cd ${COMPONENT} && npm install &>>${LOG}
+#    CHECK_STAT $?
+#
+#    SYSTEMD
+
+- name: Setup YUM repos for NodeJS
+  ansible.builtin.shell: curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash &>>${LOG}
+
+- name: Install NodeJS
+  ansible.builtin.yum:
+    name: nodejs
+    state: installed
+
+- name: Import Common App Setup Configuration
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
