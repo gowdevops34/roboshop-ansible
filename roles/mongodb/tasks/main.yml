@@ -54,7 +54,10 @@
     dest: /tmp
     remote_src: yes
 
-- name: Load Schema - C
+- name: Load Schema
   community.mongodb.mongodb_shell:
-    file: "/tmp/mongodb-main/.js"
+    file: "/tmp/mongodb-main/{{item}}.js"
     idempotent: yes
+  loop:
+    - catalogue
+    - users
